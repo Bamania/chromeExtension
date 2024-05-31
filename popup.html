@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Highlighter</title>
+  <style>
+    .highlight { background-color: yellow; }
+    .note { position: absolute; border: 1px solid black; background: white; padding: 5px; }
+    .note textarea { width: 100%; }
+    .note button { display: block; margin-top: 5px; }
+  </style>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <div id="content">
+    <div id="text">Select some text on any webpage to highlight it or add a note.</div>
+    <div id="notes"></div>
+  </div>
+</body>
+</html>

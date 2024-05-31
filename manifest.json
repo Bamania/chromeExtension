@@ -1,0 +1,32 @@
+{
+  "name": "Notify!",
+  "version": "1.0",
+  "description": "A basic Chrome extension example.",
+  "manifest_version": 3,
+  "icons": {
+    "16": "logo192.png",
+    "128": "logo192.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "My App",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo192.png",
+      "128": "logo192.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["contentScript.css"]
+    }
+  ]
+}

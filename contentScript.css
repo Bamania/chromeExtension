@@ -1,0 +1,33 @@
+.highlighted-text {
+    background-color: yellow;
+  }
+  
+  .note {
+    border: 1px solid black;
+    background: white;
+    padding: 10px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+  
+  .note textarea {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .note button {
+    margin-top: 5px;
+  }
+  
+  .saved-note {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .saved-note button {
+    margin-top: 5px;
+  }
+  
