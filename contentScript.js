@@ -34,7 +34,6 @@ document.addEventListener('mouseup', function(event) {
         deleteButton.innerText = 'Delete Note';
         deleteButton.addEventListener('click', () => {
           noteDiv.remove();
-          highlightSpan.remove();
         });
         noteDiv.appendChild(deleteButton);
       }
