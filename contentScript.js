@@ -33,7 +33,20 @@ document.addEventListener('mouseup', function(event) {
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete Note';
         deleteButton.addEventListener('click', () => {
+
+          // Remove the highlight element
+          const highlightElement = document.querySelector('.highlighted-text');
+          if (highlightElement) {
+            const range = document.createRange();
+            range.selectNodeContents(highlightElement);
+            const contents = range.extractContents();
+            highlightElement.remove();
+            range.insertNode(contents);
+          }
+
           noteDiv.remove();
+          event.stopPropagation(); // Prevents event bubbling to the highlight element
+
         });
         noteDiv.appendChild(deleteButton);
       }
@@ -43,16 +56,23 @@ document.addEventListener('mouseup', function(event) {
     cancelButton.innerText = 'Cancel';
     cancelButton.addEventListener('click', () => {
       noteDiv.remove();
-      const range = document.createRange();
-      range.selectNodeContents(highlightSpan);
-      const contents = range.extractContents();
-      highlightSpan.remove();
-      range.insertNode(contents);
+      // Remove the highlight element after creating the noteDiv
+      const highlightElement = document.querySelector('.highlighted-text');
+      if (highlightElement) {
+        const range = document.createRange();
+        range.selectNodeContents(highlightElement);
+        const contents = range.extractContents();
+        highlightElement.remove();
+        range.insertNode(contents);
+      }
     });
+
+    
 
     noteDiv.appendChild(textarea);
     noteDiv.appendChild(saveButton);
     noteDiv.appendChild(cancelButton);
     document.body.appendChild(noteDiv);
+
   }
 });
