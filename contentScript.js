@@ -33,7 +33,6 @@ document.addEventListener('mouseup', function(event) {
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete Note';
         deleteButton.addEventListener('click', () => {
-
           // Remove the highlight element
           const highlightElement = document.querySelector('.highlighted-text');
           if (highlightElement) {
@@ -43,10 +42,8 @@ document.addEventListener('mouseup', function(event) {
             highlightElement.remove();
             range.insertNode(contents);
           }
-
           noteDiv.remove();
           event.stopPropagation(); // Prevents event bubbling to the highlight element
-
         });
         noteDiv.appendChild(deleteButton);
       }
@@ -67,12 +64,19 @@ document.addEventListener('mouseup', function(event) {
       }
     });
 
-    
-
     noteDiv.appendChild(textarea);
     noteDiv.appendChild(saveButton);
     noteDiv.appendChild(cancelButton);
     document.body.appendChild(noteDiv);
 
+    // Show note box when hovering over the highlighted text
+    highlightSpan.addEventListener('mouseenter', () => {
+      noteDiv.style.display = 'block';
+    });
+
+    // Hide note box when leaving the highlighted text
+    highlightSpan.addEventListener('mouseleave', () => {
+      noteDiv.style.display = 'none';
+    });
   }
 });
